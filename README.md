@@ -75,10 +75,14 @@ ECAPA-TDNN实现了一个强大的音频特征提取网络，包含以下关键�
 
 ```bash
 git clone https://github.com/username/ECAPA_TDNN.git
+cd ECAPA_TDNN
 ```
 
 
 ## 快速开始
+
+### 预训练模型下载
+创建 pretrain_models/run 目录，从 [huggingface](https://huggingface.co/HuShou-ZMZN/ECAPA_TDNN) 下载模型后放入目录下
 
 ### 模型训练
 
