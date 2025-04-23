@@ -1,38 +1,6 @@
 # ECAPA-TDNN 音频欺骗检测系统
 
-基于ECAPA-TDNN架构的音频欺骗检测系统，专为区分真实人声和AI合成/伪造语音而设计。在使用了四个先进的TTS开源模型创建的开源数据集 [AudioSpoof](https://github.com/huhuhushou/AudioSpoof) 上进行了训练和测试，取得了较好的效果; 同时，模型较为轻量，且所需有效音频仅为3秒，便于实时监测; 提供了预训练模型于 pretrained_models 目录下。
-
-## 目录
-
-- [ECAPA-TDNN 音频欺骗检测系统](#ecapa-tdnn-音频欺骗检测系统)
-  - [目录](#目录)
-  - [项目介绍](#项目介绍)
-  - [模型架构](#模型架构)
-    - [1. 基础模型 (ecapa\_tdnn.py)](#1-基础模型-ecapa_tdnnpy)
-    - [2. 分类器模型 (classifier.py)](#2-分类器模型-classifierpy)
-    - [3. 处理流程](#3-处理流程)
-  - [功能特点](#功能特点)
-  - [环境要求](#环境要求)
-  - [安装方法](#安装方法)
-    - [从源码安装](#从源码安装)
-  - [快速开始](#快速开始)
-    - [模型训练](#模型训练)
-      - [使用命令行](#使用命令行)
-      - [训练参数说明](#训练参数说明)
-    - [模型推理](#模型推理)
-      - [使用命令行](#使用命令行-1)
-      - [推理参数说明](#推理参数说明)
-  - [项目结构](#项目结构)
-  - [工具脚本](#工具脚本)
-    - [音频格式转换 (mp3-wav.ipynb)](#音频格式转换-mp3-wavipynb)
-    - [视频提取音频 (vedio2wav.ipynb)](#视频提取音频-vedio2wavipynb)
-  - [数据集格式](#数据集格式)
-    - [添加新的欺骗模型](#添加新的欺骗模型)
-  - [评估指标](#评估指标)
-  - [开发者指南](#开发者指南)
-    - [扩展模型](#扩展模型)
-    - [自定义数据预处理](#自定义数据预处理)
-  - [结果展示](#结果展示)
+基于ECAPA-TDNN架构的音频欺骗检测系统，专为区分真实人声和AI合成/伪造语音而设计。在使用了四个先进的TTS开源模型创建的开源数据集 [AudioSpoof](https://github.com/huhuhushou/AudioSpoof) 上进行了训练和测试，取得了较好的效果; 同时，模型较为轻量，且所需有效音频仅为3秒，便于实时监测; 提供了预训练模型于 [huggingface](https://huggingface.co/HuShou-ZMZN/ECAPA_TDNN) 。
 
 ## 项目介绍
 
@@ -43,6 +11,16 @@
 - 音频内容审核
 - 数字取证和真实性鉴别
 - 声纹识别系统的防欺骗层
+
+## 结果展示
+在开源数据集 [AudioSpoof](https://github.com/huhuhushou/AudioSpoof) 上训练和预测的结果如下：
+
+测试集评估结果:
+- 准确率(ACC): 92.76%
+- 精确率(P): 92.68%
+- 召回率(R): 98.75%
+- F1分数: 95.62%
+- 等错误率(EER): 8.89%
 
 ## 模型架构
 
@@ -97,8 +75,6 @@ ECAPA-TDNN实现了一个强大的音频特征提取网络，包含以下关键�
 
 ```bash
 git clone https://github.com/username/ECAPA_TDNN.git
-cd ECAPA_TDNN
-pip install -e .
 ```
 
 
@@ -327,13 +303,5 @@ class MyProcessor(MFCCProcessor):
         # 自定义特征提取流程...
         pass
 ```
-## 结果展示
-在开源数据集 [AudioSpoof](https://github.com/huhuhushou/AudioSpoof) 上训练和预测的结果如下：
 
-测试集评估结果:
-- 准确率(ACC): 92.76%
-- 精确率(P): 92.68%
-- 召回率(R): 98.75%
-- F1分数: 95.62%
-- 等错误率(EER): 8.89%
 
